@@ -28,7 +28,7 @@ public class DAOUsuario extends DAO {
 				Statement stmt = this.con.createStatement();
 				ResultSet rst = null;
 				try {
-					String sql = "select idusuario,login,password " +
+					String sql = "select id,login,password " +
 				                 "from usuario " +
 							     "where login = '" + objUsuario.getLogin().replace("'","") + "' and " +
 							     "password = '" + objUsuario.getPassword().replace("'","") + "'";

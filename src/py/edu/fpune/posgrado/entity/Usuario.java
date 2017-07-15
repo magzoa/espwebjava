@@ -14,7 +14,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	@Column(name="id",type=DataType.INTEGER,unique=true)
-	private Integer idUsuario;
+	private Integer id;
 	
 	@Column(name="login",type=DataType.STRING,length=100)
 	private String login;
@@ -22,12 +22,13 @@ public class Usuario {
 	@Column(name="password",type=DataType.STRING,length=100)
 	private String password;
 
-	public Integer getIdUsuario() {
-		return idUsuario;
+	
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getLogin() {
