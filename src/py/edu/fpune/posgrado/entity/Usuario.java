@@ -13,7 +13,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue
-	@Column(name="idusuario",type=DataType.INTEGER,unique=true)
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer idUsuario;
 	
 	@Column(name="login",type=DataType.STRING,length=100)
