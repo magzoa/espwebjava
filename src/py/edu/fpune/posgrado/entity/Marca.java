@@ -13,7 +13,7 @@ public class Marca {
 
 	@Id
 	@GeneratedValue
-	@Column(name="idmarca",type=DataType.INTEGER,unique=true)
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer idMarca;
 	
 	@Column(name="descripcion",type=DataType.STRING,length=100)
