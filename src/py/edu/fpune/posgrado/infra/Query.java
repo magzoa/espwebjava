@@ -14,7 +14,7 @@ public class Query {
 		Column column = field.getAnnotation(Column.class);
 		return column.name();
 	}
-	
+	//Agregando Double por Magno
 	private static String getFieldFormatedValue(Field field,Object obj) throws Exception {
 		Column column = field.getAnnotation(Column.class);
 		Object value = Reflection.getFieldValue(field, obj); 
@@ -22,7 +22,9 @@ public class Query {
 			if ((column.type() == DataType.BOOLEAN) ||
 				(column.type() == DataType.INTEGER) ||
 				(column.type() == DataType.LONG) ||
-				(column.type() == DataType.FLOAT)) {
+				(column.type() == DataType.FLOAT)||
+				(column.type() == DataType.DOUBLE))
+			{
 				return String.valueOf(value);
 			} else if (column.type() == DataType.OBJECT) {
 				Object idFK = Reflection.getIdFieldValue(value);

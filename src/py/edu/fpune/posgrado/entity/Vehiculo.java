@@ -3,6 +3,8 @@ package py.edu.fpune.posgrado.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
@@ -21,7 +23,8 @@ public class Vehiculo implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	@Column(name="id",type=DataType.INTEGER,unique=true)
+	private Integer idVehiculo;
 
 	private Integer anho;
 
@@ -50,13 +53,19 @@ public class Vehiculo implements Serializable {
 	public Vehiculo() {
 	}
 
-	public Integer getId() {
-		return this.id;
+	
+
+	public Integer getIdVehiculo() {
+		return idVehiculo;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+
+
+	public void setIdVehiculo(Integer idVehiculo) {
+		this.idVehiculo = idVehiculo;
 	}
+
+
 
 	public Integer getAnho() {
 		return this.anho;

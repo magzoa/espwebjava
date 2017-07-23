@@ -4,10 +4,12 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
+import py.edu.fpune.posgrado.annotation.Transient;
 
 import java.util.Date;
 import java.util.List;
@@ -25,42 +27,53 @@ public class OrdenServicio implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	@Column(name="id",type=DataType.INTEGER,unique=true)
+	private Integer idOrdenServicio;
 
+	@Column(name="descripcion",type=DataType.STRING,length=100)
 	private String descripcion;
-
-	//@Temporal(TemporalType.DATE)
+	
+	@Column(name="fecha",type=DataType.DATETIME)
 	private Date fecha;
 
-	@Column(name="total_prod")
+	@Column(name="total_prod",type=DataType.DOUBLE)
 	private double totalProd;
 
-	@Column(name="total_serv")
+	@Column(name="total_serv",type=DataType.DOUBLE)
 	private double totalServ;
 
 	//bi-directional many-to-one association to Vehiculo
 	//@ManyToOne
 	//@JoinColumn(name="id_vehiculo")
+	@Column(name="id_vehiculo",type=DataType.OBJECT)
 	private Vehiculo vehiculo;
 
 	//bi-directional many-to-one association to OrdenServicioDetProducto
 	//@OneToMany(mappedBy="ordenServicio")
+	@Transient
 	private List<OrdenServicioDetProducto> ordenServicioDetProductos;
 
 	//bi-directional many-to-one association to OrdenServicioDetServicio
 	//@OneToMany(mappedBy="ordenServicio")
+	@Transient
 	private List<OrdenServicioDetServicio> ordenServicioDetServicios;
 
 	public OrdenServicio() {
 	}
 
-	public Integer getId() {
-		return this.id;
+	
+
+	public Integer getIdOrdenServicio() {
+		return idOrdenServicio;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+
+
+	public void setIdOrdenServicio(Integer idOrdenServicio) {
+		this.idOrdenServicio = idOrdenServicio;
 	}
+
+
 
 	public String getDescripcion() {
 		return this.descripcion;

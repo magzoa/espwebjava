@@ -11,4 +11,5 @@ public @interface DataType {
 	public static short LONG = 7;	
 	public static short FLOAT = 8;
 	public static short OBJECT = 9; //Para Foreign Keys
+	public static short DOUBLE = 10;
 }
