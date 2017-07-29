@@ -6,6 +6,7 @@ import py.edu.fpune.posgrado.annotation.Column;
 import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
+import py.edu.fpune.posgrado.util.ManejadorFecha;
 
 public class Query {
 	
@@ -33,10 +34,25 @@ public class Query {
 				} else {
 					return String.valueOf(idFK);
 				}
+			}else if (column.type() == DataType.DATE) {
+				//System.out.println("Valor Date "+value);
+				return "'"+value+"'";
+				
+			}else if (column.type() == DataType.DOUBLE_NATIVO) {
+				//System.out.println("Valor Date "+value);
+				String valor=value+"";
+				if(valor.equalsIgnoreCase("null")){
+					value="0";
+					System.out.println("Ingrese en null value nativo");
+				}
+				
+				return String.valueOf(value);
+				
 			} else {
 				return "'" +((String) value).replace("'","").trim() + "'";
 			}
 		} else {
+			System.out.println("Ingrese en el ultimo");
 			return "null";
 		}
 	}
@@ -110,12 +126,22 @@ public class Query {
 			Column column = fields[i].getAnnotation(Column.class);
 			Object value = Reflection.getFieldValue(fields[i],obj);
 			String sField = "";
+			
+			if(column.type() == DataType.DOUBLE||column.type() == DataType.DOUBLE_NATIVO){
+			Double d=Double.parseDouble(value+"");
+			if(d==0.0){
+				value=null;
+			}
+			}
+			
 			if ((value != null) &&
 				(!value.equals(""))) {
 				if ((column.type() == DataType.BOOLEAN) ||
 					(column.type() == DataType.INTEGER) ||
 					(column.type() == DataType.LONG) ||
-					(column.type() == DataType.FLOAT)) {
+					(column.type() == DataType.FLOAT)||
+					(column.type() == DataType.DOUBLE)
+					||(column.type() == DataType.DOUBLE_NATIVO)) {
 					sField = " = " + String.valueOf(value);
 				} else if (column.type() == DataType.OBJECT) {
 					Object idFK = Reflection.getIdFieldValue(value);

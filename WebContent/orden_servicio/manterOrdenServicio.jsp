@@ -36,12 +36,22 @@
 				document.getElementById("descripcion").focus();
 				return false;
 			}
+			if (document.getElementById("fecha").value == "") {
+				alert("Campo obligatorio!");
+				document.getElementById("fecha").focus();
+				return false;
+			}else{
+				console.log(document.getElementById("fecha").value);
+				document.getElementById("fecha").value ==new Date(document.getElementById("fecha").value)
+				console.log(document.getElementById("fecha").value);
+			}
 			return true;
 		}
 		
 		function save() {
 			if (validate()) {
 				document.getElementById("newAction").value = "save";
+				console.log(document.getElementById("form"));
 				document.getElementById("form").submit();
 			}
 		}
@@ -72,14 +82,16 @@
 			<div class="divLabel">Código:</div>
 			<div class="divField"><input value="<%=(ordenServicio.getIdOrdenServicio() != null) ? ordenServicio.getIdOrdenServicio() : ""%>" class="inputText" type="text" id="idOrdenServicio" name="idOrdenServicio" readonly/></div>
 			<div class="divLabel">Descripción:</div>
-			<div class="divField"><input value="<%=(ordenServicio.getDescripcion() != null) ? ordenServicio.getDescripcion() : ""%>" class="inputText" type="text" id="descripcion" name="descripcion" style="width:320px;" /></div>
+			<div class="divField"><input value="<%=(ordenServicio.getDescripcion()!= null) ? ordenServicio.getDescripcion() : ""%>" class="inputText" type="text" id="descripcion" name="descripcion" style="width:320px;" /></div>
 		<div class="divLabel">Fecha:</div>
-			<div class="divField"><input value="<%=(ordenServicio.getFecha() != null) ? ordenServicio.getFecha() : ""%>" class="inputText" type="text" id="fecha" name="fecha" style="width:320px;" /></div>
+			<div class="divField"><input value="<%=(ordenServicio.getFecha()!= null) ? ordenServicio.getFecha(): ""%>" class="inputText" type="date" id="fecha" name="fecha" style="width:320px;" /></div>
 		<div class="divLabel">Total Productos:</div>
-			<div class="divField"><input value="<%=(ordenServicio.getTotalProd() != 0) ? ordenServicio.getTotalProd() : ""%>" class="inputText" type="number" id="total_prod" name="total_prod" style="width:320px;" /></div>
+			<div class="divField"><input value="<%=(ordenServicio.getTotalProd() != 0) ? ordenServicio.getTotalProd() : ""%>" class="inputText" type="number" id="totalProd" name="totalProd" style="width:320px;" /></div>
 		<div class="divLabel">Total Servicios:</div>
-			<div class="divField"><input value="<%=(ordenServicio.getTotalServ() != 0) ? ordenServicio.getTotalServ() : ""%>" class="inputText" type="number" id="total_serv" name="total_serv" style="width:320px;" /></div>
+			<div class="divField"><input value="<%=(ordenServicio.getTotalServ() != 0) ? ordenServicio.getTotalServ() : ""%>" class="inputText" type="number" id="totalServ" name="totalServ" style="width:320px;" /></div>
 		
+		<div class="divLabel">Vehiculo:</div>
+			<div class="divField"><input value="" class="inputText" type="number" id="vehiculo" name="vehiculo" style="width:320px;" /></div>
 		
 		
 		

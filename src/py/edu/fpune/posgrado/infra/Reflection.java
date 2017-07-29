@@ -88,6 +88,7 @@ public class Reflection {
 		boolean bOk = false;
 		for (int i = 0; i < methodList.length; i++) {
 			if (methodList[i].getName().equalsIgnoreCase("set" + field.getName())) {
+				System.out.println("El valor: "+value+" "+field.getName());
 				methodList[i].invoke(obj, value);
 				bOk = true;
 				break;

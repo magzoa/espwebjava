@@ -8,6 +8,7 @@ import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
+import py.edu.fpune.posgrado.annotation.Table;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="vehiculo")
 //@NamedQuery(name="Vehiculo.findAll", query="SELECT v FROM Vehiculo v")
 public class Vehiculo implements Serializable {
 	private static final long serialVersionUID = 1L;

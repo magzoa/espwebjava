@@ -11,6 +11,7 @@ import java.util.Vector;
 import py.edu.fpune.posgrado.annotation.Column;
 import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Transient;
+import py.edu.fpune.posgrado.util.ManejadorFecha;
 
 public class Factory {
 
@@ -41,6 +42,12 @@ public class Factory {
 					case DataType.FLOAT:
 						value = rst.getFloat(column.name());
 						break;
+					case DataType.DOUBLE:
+						value = rst.getDouble(column.name());
+						break;
+					case DataType.DOUBLE_NATIVO:
+						value = rst.getDouble(column.name());
+						break;	
 					case DataType.LONG:
 						value = rst.getLong(column.name());
 						break;
@@ -85,9 +92,17 @@ public class Factory {
 				return rawValue;
 			case DataType.DATE:
 				try {
-					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+					//SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				
+					
+					//String fecha=ManejadorFecha.dateUtilAString(ManejadorFecha.stringADateUtil(rawValue));
+					
+					//System.out.println("Fecha Parseada: "+sdf.parse(rawValue)+" Mane "+ManejadorFecha.stringADateUtil(rawValue));
 					return sdf.parse(rawValue);
+					
 				} catch (Exception e) {
+					System.out.println("Ingrese en error Parse");
 					return null;
 				}
 			case DataType.TIME:
@@ -121,6 +136,18 @@ public class Factory {
 			case DataType.FLOAT:
 				try {
 					return Float.parseFloat(rawValue);
+				} catch (Exception e) {
+					return null;
+				}
+			case DataType.DOUBLE:
+				try {
+					return Double.parseDouble(rawValue);
+				} catch (Exception e) {
+					return null;
+				}	
+			case DataType.DOUBLE_NATIVO:
+				try {
+					return Double.parseDouble(rawValue);
 				} catch (Exception e) {
 					return null;
 				}

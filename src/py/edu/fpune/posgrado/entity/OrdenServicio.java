@@ -33,7 +33,7 @@ public class OrdenServicio implements Serializable {
 	@Column(name="descripcion",type=DataType.STRING,length=100)
 	private String descripcion;
 	
-	@Column(name="fecha",type=DataType.DATETIME)
+	@Column(name="fecha",type=DataType.DATE)
 	private Date fecha;
 
 	@Column(name="total_prod",type=DataType.DOUBLE)
@@ -76,44 +76,68 @@ public class OrdenServicio implements Serializable {
 
 
 	public String getDescripcion() {
-		return this.descripcion;
+		return descripcion;
 	}
+
+
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
+
+
 	public Date getFecha() {
-		return this.fecha;
+		return fecha;
 	}
+
+
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
+
+
+	
+
+
+
 	public double getTotalProd() {
-		return this.totalProd;
+		return totalProd;
 	}
+
+
 
 	public void setTotalProd(double totalProd) {
 		this.totalProd = totalProd;
 	}
 
+
+
 	public double getTotalServ() {
-		return this.totalServ;
+		return totalServ;
 	}
+
+
 
 	public void setTotalServ(double totalServ) {
 		this.totalServ = totalServ;
 	}
 
+
+
 	public Vehiculo getVehiculo() {
-		return this.vehiculo;
+		return vehiculo;
 	}
+
+
 
 	public void setVehiculo(Vehiculo vehiculo) {
 		this.vehiculo = vehiculo;
 	}
+
+
 
 	public List<OrdenServicioDetProducto> getOrdenServicioDetProductos() {
 		return this.ordenServicioDetProductos;
@@ -157,6 +181,16 @@ public class OrdenServicio implements Serializable {
 		ordenServicioDetServicio.setOrdenServicio(null);
 
 		return ordenServicioDetServicio;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "OrdenServicio [idOrdenServicio=" + idOrdenServicio + ", descripcion=" + descripcion + ", fecha=" + fecha
+				+ ", totalProd=" + totalProd + ", totalServ=" + totalServ + ", vehiculo=" + vehiculo
+				+ ", ordenServicioDetProductos=" + ordenServicioDetProductos + ", ordenServicioDetServicios="
+				+ ordenServicioDetServicios + "]";
 	}
 
 }

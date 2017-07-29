@@ -28,8 +28,11 @@ public abstract class Controller {
 				(!paramName.equals("entityName")) &&
 				(!paramName.equals("id"))) {
 				postData.put(paramName, this.request.getParameter(paramName));
+				
+				System.out.println("Parametro:"+paramName+ "Valor: "+this.request.getParameter(paramName));
 			}
 		}
+		System.out.println(postData);
 		return postData;
 	}
 
@@ -64,7 +67,18 @@ public abstract class Controller {
 			throw new Exception("Usuário não autenticado!");
 		}
 //		this.request.setAttribute("action", this.action);
+		
+		System.out.println("Action "+this.action);
+		if(this.action.equalsIgnoreCase("goFind")){
+			this.obj=entityClass.newInstance();
+			System.out.println("Ingrese action");
+		}else{
+		
 		this.obj = Factory.createByPost(this.getPostData(), this.entityClass);
+		
+		}
+		
+		System.out.println("El objeto: "+this.obj);
 		Object objFilter = this.getFilterObject();
 		Object objId = this.getDeleteObject();
 		
