@@ -1,14 +1,16 @@
 package py.edu.fpune.posgrado.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
-
-import py.edu.fpune.posgrado.annotation.Column;
-import py.edu.fpune.posgrado.annotation.Entity;
-import py.edu.fpune.posgrado.annotation.Id;
-
 import java.util.Date;
 import java.util.List;
+
+import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
+import py.edu.fpune.posgrado.annotation.Entity;
+import py.edu.fpune.posgrado.annotation.GeneratedValue;
+import py.edu.fpune.posgrado.annotation.Id;
+import py.edu.fpune.posgrado.annotation.Table;
+import py.edu.fpune.posgrado.util.ManejadorFecha;
 
 
 /**
@@ -16,28 +18,36 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="funcionario")
 //@NamedQuery(name="Funcionario.findAll", query="SELECT f FROM Funcionario f")
 public class Funcionario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer id;
 
+	@Column(name="barrio")
 	private String barrio;
-
+	
+	@Column(name="ciudad")
 	private String ciudad;
 
+	@Column(name="direccion")
 	private String direccion;
 
 	//@Temporal(TemporalType.DATE)
-	@Column(name="fecha_nacimiento")
+	@Column(name="fecha_nacimiento", type=DataType.DATE)
 	private Date fechaNacimiento;
 
+	@Column(name="nombre")
 	private String nombre;
-
+	
+	@Column(name="numero")
 	private Integer numero;
 
+	@Column(name="ruc")
 	private String ruc;
 
 	//bi-directional many-to-one association to ServicioFuncionario
@@ -45,6 +55,7 @@ public class Funcionario implements Serializable {
 	private List<ServicioFuncionario> servicioFuncionarios;
 
 	public Funcionario() {
+		
 	}
 
 	public Integer getId() {
@@ -79,8 +90,12 @@ public class Funcionario implements Serializable {
 		this.direccion = direccion;
 	}
 
-	public Date getFechaNacimiento() {
-		return this.fechaNacimiento;
+	public Date getFechaNacimiento() {		
+		if(this.fechaNacimiento!=null){
+			return ManejadorFecha.dateUtilAdateSQL(this.fechaNacimiento);
+		}
+		return null;
+		
 	}
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
