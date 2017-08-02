@@ -2,6 +2,7 @@
 <%@page import="py.edu.fpune.posgrado.entity.Funcionario"%>
 <%@page import="py.edu.fpune.posgrado.session.SessionFuncionario"%>
 <%
+	//Funcionario
 	Funcionario funcionarioFilter = (Funcionario) request.getSession().getAttribute("filterFuncionario");
 	if (funcionarioFilter == null) {
 		funcionarioFilter = new Funcionario();

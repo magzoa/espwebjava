@@ -15,7 +15,7 @@ import py.edu.fpune.posgrado.util.ManejadorFecha;
 
 /**
  * The persistent class for the funcionario database table.
- * 
+ * Entidad de funcionario
  */
 @Entity
 @Table(name="funcionario")

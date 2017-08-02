@@ -3,6 +3,7 @@
 <%@page import="py.edu.fpune.posgrado.entity.Funcionario"%>
 <%@page import="py.edu.fpune.posgrado.session.SessionFuncionario"%>
 <%
+	//Funcionario
 	Funcionario funcionario = (Funcionario) request.getAttribute("object");
 	if (funcionario == null) {
 		funcionario = new Funcionario();

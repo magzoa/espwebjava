@@ -4,6 +4,10 @@ import java.sql.Connection;
 
 import py.edu.fpune.posgrado.infra.DAO;
 
+/*
+ * DAOFuncionario
+ */
+
 public class DAOFuncionario extends DAO{
 
 	public DAOFuncionario() throws Exception {

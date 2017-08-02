@@ -28,7 +28,7 @@
 		<div class="titulo">MENU</div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Marca','goFind');">Marca</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Modelo','goFind');">Modelo</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Funcionario','goFind');">Funcionario</a></div>
+		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Funcionario','goFind');">Funcionario.</a></div>
 		<div class="menuItem">Veículo</div>
 		<div class="menuItem">Cliente</div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('OrdenServicio','goFind');">Orden Servicio</a></div>

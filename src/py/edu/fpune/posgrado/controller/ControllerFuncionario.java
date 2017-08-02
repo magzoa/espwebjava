@@ -3,7 +3,9 @@ package py.edu.fpune.posgrado.controller;
 import py.edu.fpune.posgrado.infra.Controller;
 
 public class ControllerFuncionario extends Controller {
-
+	/*
+	 * Controlador del funcionario
+	 */
 	public ControllerFuncionario() throws Exception {
 		super("Funcionario");
 	}
