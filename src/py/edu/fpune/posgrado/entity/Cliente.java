@@ -4,9 +4,11 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
+import py.edu.fpune.posgrado.annotation.Table;
 
 import java.util.Date;
 import java.util.List;
@@ -17,28 +19,35 @@ import java.util.List;
  * 
  */
 @Entity
-//@NamedQuery(name="Cliente.findAll", query="SELECT c FROM Cliente c")
+@Table(name="cliente")
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer id;
 
+	@Column(name="barrio",type=DataType.STRING,length=255)
 	private String barrio;
 
+	@Column(name="ciudad",type=DataType.STRING,length=255)
 	private String ciudad;
 
+	@Column(name="direccion",type=DataType.STRING,length=255)
 	private String direccion;
 
 	//@Temporal(TemporalType.DATE)
-	@Column(name="fecha_nacimiento")
+	@Column(name="fecha_nacimiento",type=DataType.DATE)
 	private Date fechaNacimiento;
 
+	@Column(name="nombre",type=DataType.STRING,length=255)
 	private String nombre;
 
+	@Column(name="numero",type=DataType.INTEGER)
 	private Integer numero;
 
+	@Column(name="ruc",type=DataType.STRING,length=15)
 	private String ruc;
 
 	//bi-directional many-to-one association to Vehiculo

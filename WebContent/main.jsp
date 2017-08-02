@@ -30,7 +30,7 @@
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Modelo','goFind');">Modelo</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Funcionario','goFind');">Funcionario.</a></div>
 		<div class="menuItem">Veículo</div>
-		<div class="menuItem">Cliente</div>
+		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Cliente','goFind');">Cliente</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('OrdenServicio','goFind');">Orden Servicio</a></div>
 	</div>
 	<div class="divMain">
