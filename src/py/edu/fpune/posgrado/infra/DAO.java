@@ -1,8 +1,21 @@
 package py.edu.fpune.posgrado.infra;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.Table;
+import py.edu.fpune.posgrado.entity.OrdenServicioDetProducto;
+
 
 public abstract class DAO {
 	
@@ -96,15 +109,74 @@ public abstract class DAO {
 			}
 		}
 	}
-
+//Aca se deve verificar si existe una lista como atributo
 	public Object[] find(Object obj) throws Exception {
 		Statement stmt = this.con.createStatement();
 		ResultSet rst = null;
+		ResultSet rst2 = null;
 		try {
 			String sql = Query.getSQLSelect(obj);
 			System.out.println(sql);
 			rst = stmt.executeQuery(sql);
-			return Factory.createByResultSet(rst, obj.getClass());
+			Object[] retorno=Factory.createByResultSet(rst, obj.getClass());
+			
+			
+			
+			Field field=Reflection.getListField(obj.getClass());
+			
+			
+			
+			Class<?> claseLista=Class.forName("py.edu.fpune.posgrado.entity."+Reflection.getListFieldClassName(obj.getClass()));
+			
+			Object objLista=claseLista.newInstance();
+			
+			System.out.println("Clase Lista"+claseLista.getName());
+			System.out.println("El Objeto "+claseLista.getAnnotation(Table.class));
+			System.out.println("El Objeto "+claseLista.getName());
+			
+
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			if(field!=null){
+				
+				String sql2 = Query.getSQLSelect(objLista);
+				System.out.println(sql2);
+				rst2 = stmt.executeQuery(sql2);
+				Object[] lista=Factory.createByResultSet(rst2, objLista.getClass());
+				
+				//List<OrdenServicioDetProducto> list = new ArrayList(Arrays.asList(lista));
+				
+				//System.out.println(lista);
+				
+				String jsonInString = mapper.writeValueAsString(lista); //convierta la lista en string
+				
+				//TypeReference<List<OrdenServicioDetProducto>> mapType = new TypeReference<List<OrdenServicioDetProducto>>() {};
+		    	//List<OrdenServicioDetProducto> productosList = mapper.readValue( list, mapType); en caso de String a List
+				
+				
+				
+				System.out.println("Json: "+jsonInString);
+				
+			}
+			
+			
+			
+			
+			//System.out.println("La lista "+field.getName());
+			//System.out.println("Nombre "+field.getType());
+			//System.out.println("Nombre "+field.getType().getSimpleName());
+			//System.out.println("Nombre "+field.getType().getClass());
+			
+			
+			
+			return retorno;
+			
+			
+			
+			
+			
+			
 		} catch (Exception e) {
 			try {
 				this.rollback();
@@ -114,8 +186,10 @@ public abstract class DAO {
 		} finally {
 			try {
 				stmt.close();
+				
 				if (rst != null) {
 					rst.close();
+					
 				}
 			} catch (Exception e) {
 			}
@@ -133,4 +207,7 @@ public abstract class DAO {
 		}
 		return null;
 	}
+	
+	
+	
 }

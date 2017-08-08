@@ -15,6 +15,12 @@ public class Query {
 		Column column = field.getAnnotation(Column.class);
 		return column.name();
 	}
+	
+	
+	
+	
+	
+	
 	//Agregando Double por Magno
 	private static String getFieldFormatedValue(Field field,Object obj) throws Exception {
 		Column column = field.getAnnotation(Column.class);
@@ -43,7 +49,7 @@ public class Query {
 				String valor=value+"";
 				if(valor.equalsIgnoreCase("null")){
 					value="0";
-					System.out.println("Ingrese en null value nativo");
+				//	System.out.println("Ingrese en null value nativo");
 				}
 				
 				return String.valueOf(value);
@@ -52,7 +58,7 @@ public class Query {
 				return "'" +((String) value).replace("'","").trim() + "'";
 			}
 		} else {
-			System.out.println("Ingrese en el ultimo");
+			//System.out.println("Ingrese en el ultimo");
 			return "null";
 		}
 	}

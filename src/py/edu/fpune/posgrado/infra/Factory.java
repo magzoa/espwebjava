@@ -57,6 +57,12 @@ public class Factory {
 					case DataType.STRING:
 						value = rst.getString(column.name());
 						break;
+					case DataType.LIST:
+						System.out.println("Ingrese a lista"+column.name());
+						System.out.println("Ingrese a lista"+fieldList[i].getType());
+						
+						//value = rst.getString(column.name());
+						break;
 					case DataType.OBJECT:
 						Integer idFK = rst.getInt(column.name());
 						Object objFK = fieldList[i].getType().newInstance();
@@ -187,4 +193,7 @@ public class Factory {
 		}
 		return obj;
 	}	
+	
+	
+	
 }

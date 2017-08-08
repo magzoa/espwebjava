@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Vector;
 
 import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
@@ -140,4 +141,38 @@ public class Reflection {
 		}
 		return (Field[]) result.toArray(new Field[result.size()]);
 	}
+	
+	public static Field getListField(Class<?> c) throws Exception {
+		validate(c);
+		Field fieldList[] = c.getDeclaredFields();
+		for (int i = 0; i < fieldList.length; i++) {
+			Field field = fieldList[i];
+			Column column = field.getAnnotation(Column.class);
+			if ((field.isAnnotationPresent(Column.class))&&(column.type()==DataType.LIST) ) {
+				return field;
+			}
+		}
+		throw new Exception("Missing @Column in List");
+	}
+	public static String getListFieldClassName(Class<?> c) throws Exception {
+		validate(c);
+		Field fieldList[] = c.getDeclaredFields();
+		for (int i = 0; i < fieldList.length; i++) {
+			Field field = fieldList[i];
+			Column column = field.getAnnotation(Column.class);
+			if ((field.isAnnotationPresent(Column.class))&&(column.type()==DataType.LIST) ) {
+				return column.classListName();
+			}
+		}
+		throw new Exception("Missing @Column in List");
+	}
+
+	
+
+	//public static String getClassListName(Class <?> c) throws Exception {
+		
+		//Column col = c.getAnnotation(Column.class);
+		//return col.classListName();
+	//}
+
 }

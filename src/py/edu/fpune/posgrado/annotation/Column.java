@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Column {
 	public String name() default "";
+	public String classListName() default "";
 	public short type() default DataType.STRING;
 	public int length() default 255;
 	

@@ -13,4 +13,5 @@ public @interface DataType {
 	public static short OBJECT = 9; //Para Foreign Keys
 	public static short DOUBLE = 10;
 	public static short DOUBLE_NATIVO=11;
+	public static short LIST =12;
 }

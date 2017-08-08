@@ -1,5 +1,5 @@
 package py.edu.fpune.posgrado.entity;
-
+	
 import py.edu.fpune.posgrado.annotation.Column;
 import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;

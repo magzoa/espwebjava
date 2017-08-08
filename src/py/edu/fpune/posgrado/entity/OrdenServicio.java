@@ -11,6 +11,7 @@ import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
 import py.edu.fpune.posgrado.annotation.Transient;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -50,15 +51,27 @@ public class OrdenServicio implements Serializable {
 
 	//bi-directional many-to-one association to OrdenServicioDetProducto
 	//@OneToMany(mappedBy="ordenServicio")
+	//@Transient
 	@Transient
+	@Column(name="orden_servicio_det_producto",classListName="OrdenServicioDetProducto",type=DataType.LIST)
 	private List<OrdenServicioDetProducto> ordenServicioDetProductos;
 
+	@Transient
+	private String jsonOrdenServicioDetProducto;
+	
+	
+	
 	//bi-directional many-to-one association to OrdenServicioDetServicio
 	//@OneToMany(mappedBy="ordenServicio")
 	@Transient
 	private List<OrdenServicioDetServicio> ordenServicioDetServicios;
+	
+	
 
 	public OrdenServicio() {
+	ordenServicioDetProductos=new ArrayList<>();
+	
+	
 	}
 
 	
@@ -181,6 +194,22 @@ public class OrdenServicio implements Serializable {
 		ordenServicioDetServicio.setOrdenServicio(null);
 
 		return ordenServicioDetServicio;
+	}
+
+
+
+	
+
+
+
+	public String getJsonOrdenServicioDetProducto() {
+		return jsonOrdenServicioDetProducto;
+	}
+
+
+
+	public void setJsonOrdenServicioDetProducto(String jsonOrdenServicioDetProducto) {
+		this.jsonOrdenServicioDetProducto = jsonOrdenServicioDetProducto;
 	}
 
 

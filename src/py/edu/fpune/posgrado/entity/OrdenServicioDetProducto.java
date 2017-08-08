@@ -3,6 +3,8 @@ package py.edu.fpune.posgrado.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
@@ -21,28 +23,38 @@ public class OrdenServicioDetProducto implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	@Column(name="id",type=DataType.INTEGER,unique=true)
+	private Integer idOrdenServicioDetProducto;
 
 	//bi-directional many-to-one association to OrdenServicio
 	//@ManyToOne
 	//@JoinColumn(name="id_orden_servicio")
+	@Column(name="id_orden_servicio",type=DataType.OBJECT)
 	private OrdenServicio ordenServicio;
 
 	//bi-directional many-to-one association to Producto
 	//@ManyToOne
 	//@JoinColumn(name="id_producto")
+	
+	@Column(name="id_producto",type=DataType.OBJECT)
 	private Producto producto;
 
 	public OrdenServicioDetProducto() {
 	}
 
-	public Integer getId() {
-		return this.id;
+	
+
+	public Integer getIdOrdenServicioDetProducto() {
+		return idOrdenServicioDetProducto;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+
+
+	public void setIdOrdenServicioDetProducto(Integer idOrdenServicioDetProducto) {
+		this.idOrdenServicioDetProducto = idOrdenServicioDetProducto;
 	}
+
+
 
 	public OrdenServicio getOrdenServicio() {
 		return this.ordenServicio;

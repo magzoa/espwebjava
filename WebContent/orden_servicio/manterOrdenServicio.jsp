@@ -10,11 +10,36 @@
 	String message = (String) request.getAttribute("msg");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="registroProducto">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="./css/styles.css">
 	<title>Consultar OrdenServicio</title>
+	
+	<script type="text/javascript" src="./js/angular.js"> </script>
+	
+	<script type="text/javascript"> 
+angular.module("registroProducto",[]); 
+angular.module("registroProducto").controller("productoController",function( $scope,$http){ 
+ 	$scope.hola="Hola Angular Js"; 
+ 
+	var cargarProductos=function(){
+		$http.get("http://localhost:8080/lightsoft/productos.json").success(
+		function(data,status){
+			$scope.productos=data;
+		
+		}		
+		
+		);
+		
+		
+	};
+	
+console.log("Ingrese en Angular");
+
+}); 
+ 
+</script> 
 	
 	<script type="text/javascript">
 	
@@ -72,7 +97,7 @@
 		}
 	</script>	
 </head>
-<body onload="message();">
+<body onload="message();" ng-controller="productoController">
 	<div class="titulo">Consultar OrdenServicio</div>
 	<div class="divFields">
 		<form id="form" name="form" method="post" action="dispatcher">
@@ -91,9 +116,9 @@
 			<div class="divField"><input value="<%=(ordenServicio.getTotalServ() != 0) ? ordenServicio.getTotalServ() : ""%>" class="inputText" type="number" id="totalServ" name="totalServ" style="width:320px;" /></div>
 		
 		<div class="divLabel">Vehiculo:</div>
-			<div class="divField"><input value="" class="inputText" type="number" id="vehiculo" name="vehiculo" style="width:320px;" /></div>
+			<div class="divField"><input value="<%=(ordenServicio.getVehiculo() != null) ? ordenServicio.getVehiculo().getIdVehiculo() : ""%>" class="inputText" type="number" id="vehiculo" name="vehiculo" style="width:320px;" /></div>
 		
-		
+		<input value="<%=(ordenServicio.getJsonOrdenServicioDetProducto() != null) ? ordenServicio.getJsonOrdenServicioDetProducto() : ""%>" class="inputText" type="text" id="jsonServicioProducto" name="jsonServicioProducto" style="width:320px;" />
 		
 		</form>
 		<div class="divButtons">
@@ -103,5 +128,34 @@
 			<input type="button" class="button" value="Volver" onclick="goFind();" />
 		</div>
 	</div>
+	
+	
+	<div ng-bind="hola"></div>
+	<table>
+        <thead>
+          <tr>
+              <th ></th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr >
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          
+        </tbody>
+      </table>
+	
+	
+	
+	
+	
 </body>
+
+
+
 </html>

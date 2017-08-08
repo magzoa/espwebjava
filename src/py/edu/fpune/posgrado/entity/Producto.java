@@ -3,9 +3,12 @@ package py.edu.fpune.posgrado.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
+import py.edu.fpune.posgrado.annotation.Table;
 
 import java.util.List;
 
@@ -15,12 +18,14 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="producto")
 //@NamedQuery(name="Producto.findAll", query="SELECT p FROM Producto p")
 public class Producto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer id;
 
 	private Integer cantidad;

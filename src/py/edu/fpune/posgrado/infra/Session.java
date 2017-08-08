@@ -40,7 +40,7 @@ public class Session {
 	}
 	
 	public Object[] find(Object object) throws Exception {
-		return this.find(object,true);
+		return this.find(object,false);
 	}
 	
 	public Object[] find(Object object, boolean bCommit) throws Exception {
