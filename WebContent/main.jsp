@@ -33,6 +33,7 @@
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Cliente','goFind');">Cliente</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Producto','goFind');">Producto</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('OrdenServicio','goFind');">Orden Servicio</a></div>
+		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Venta','goFind');">Venta</a></div>
 	</div>
 	<div class="divMain">
 		<iframe class="iframeMain" name="main" frameborder="1" style="border: 1px solid; border-color:#ff0000"></iframe>
