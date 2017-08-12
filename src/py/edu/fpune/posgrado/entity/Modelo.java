@@ -13,13 +13,13 @@ public class Modelo {
 
 	@Id
 	@GeneratedValue
-	@Column(name="idmodelo",type=DataType.INTEGER,unique=true)
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer idModelo;
 	
 	@Column(name="descripcion",type=DataType.STRING,length=100,orderBy=true)
 	private String descripcion;
 	
-	@Column(name="idmarca",type=DataType.OBJECT)
+	@Column(name="id_marca",type=DataType.OBJECT)
 	private Marca marca;
 	
 	public Marca getMarca() {
@@ -40,6 +40,8 @@ public class Modelo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "Modelo [idModelo=" + idModelo + ", descripcion=" + descripcion

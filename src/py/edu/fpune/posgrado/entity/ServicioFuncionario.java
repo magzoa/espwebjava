@@ -3,6 +3,8 @@ package py.edu.fpune.posgrado.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
@@ -21,8 +23,10 @@ public class ServicioFuncionario implements Serializable {
 
 	@Id
 	@GeneratedValue
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer id;
 
+	@Column(name="descripcion",type=DataType.STRING,length=255)
 	private String descripcion;
 
 	//bi-directional many-to-one association to Funcionario
