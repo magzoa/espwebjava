@@ -23,7 +23,7 @@ public class Venta implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer idVenta;
 
 	private String descripcion;
 
@@ -52,12 +52,12 @@ public class Venta implements Serializable {
 	public Venta() {
 	}
 
-	public Integer getId() {
-		return this.id;
+	public Integer getIdVenta() {
+		return this.idVenta;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.idVenta = id;
 	}
 
 	public String getDescripcion() {

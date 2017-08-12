@@ -1,10 +1,10 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@page import="py.edu.fpune.posgrado.entity.OrdenServicio"%>
-<%@page import="py.edu.fpune.posgrado.session.SessionOrdenServicio"%>
+<%@page import="py.edu.fpune.posgrado.entity.Venta"%>
+<%@page import="py.edu.fpune.posgrado.session.SessionVenta"%>
 <%
-	OrdenServicio ordenServicioFilter = (OrdenServicio) request.getSession().getAttribute("filterOrdenServicio");
-	if (ordenServicioFilter == null) {
-		ordenServicioFilter = new OrdenServicio();
+	Venta ventaFilter = (Venta) request.getSession().getAttribute("filterVenta");
+	if (ventaFilter == null) {
+		ventaFilter = new Venta();
 	}
 	Object list[] = (Object[]) request.getAttribute("list");
 	if (list == null) {
@@ -18,7 +18,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="./css/styles.css">
-	<title>Consultar OrdenServicio</title>
+	<title>Consultar Venta</title>
 	
 	<script type="text/javascript">
 	
@@ -63,16 +63,16 @@
 	</script>	
 </head>
 <body onload="message();">
-	<div class="titulo">Consultar OrdenServicio</div>
+	<div class="titulo">Consultar Venta</div>
 	<div class="divFields">
 		<form id="form" name="form" method="post" action="dispatcher">
 			<input type="hidden" id="newAction" name="newAction" />
-			<input type="hidden" id="entityName" name="entityName" value="OrdenServicio" />
-			<input type="hidden" id="id" name="id" />
+			<input type="hidden" id="entityName" name="entityName" value="Venta" />
+			<input type="hidden" id="idventa" name="idventa" />
 			<div class="divLabel">Código:</div>
-			<div class="divField"><input value="<%=(ordenServicioFilter.getIdOrdenServicio() != null) ? ordenServicioFilter.getIdOrdenServicio() : ""%>" class="inputText" type="text" id="idOrdenServicio" name="idOrdenServicio" /></div>
+			<div class="divField"><input value="<%=(ventaFilter.getIdVenta() != null) ? ventaFilter.getIdVenta() : ""%>" class="inputText" type="text" id="idVenta" name="idVenta" /></div>
 			<div class="divLabel">Descripción:</div>
-			<div class="divField"><input value="<%=(ordenServicioFilter.getDescripcion() != null) ? ordenServicioFilter.getDescripcion() : ""%>" class="inputText" type="text" id="descripcion" name="descripcion" style="width:320px;" /></div>
+			<div class="divField"><input value="<%=(ventaFilter.getDescripcion() != null) ? ventaFilter.getDescripcion() : ""%>" class="inputText" type="text" id="descripcion" name="descripcion" style="width:320px;" /></div>
 		</form>
 		<div class="divButtons">
 			<input type="button" class="button" value="Consultar" onclick="find();" />
@@ -89,14 +89,14 @@
 			</tr>
 <%
 	for(int i=0; i<list.length; i++) {
-		OrdenServicio ordenServicio = (OrdenServicio) list[i];
+		Venta venta = (Venta) list[i];
 %> 	
 			<tr>
-				<td><%=ordenServicio.getIdOrdenServicio()%></td>
-				<td><%=ordenServicio.getDescripcion()%></td>
+				<td><%=venta.getIdVenta()%></td>
+				<td><%=venta.getDescripcion()%></td>
 				<td style="text-align:center">
-					<img class="image" src="./img/miniDetail.gif" onclick="detail(<%=ordenServicio.getIdOrdenServicio()%>);" />
-					<img class="image" src="./img/miniRemove.gif" onclick="removeRecord(<%=ordenServicio.getIdOrdenServicio()%>);" />
+					<img class="image" src="./img/miniDetail.gif" onclick="detail(<%=venta.getIdVenta()%>);" />
+					<img class="image" src="./img/miniRemove.gif" onclick="removeRecord(<%=venta.getIdVenta()%>);" />
 				</td>
 			</tr>
 <%
