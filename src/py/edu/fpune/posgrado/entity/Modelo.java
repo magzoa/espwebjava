@@ -40,8 +40,6 @@ public class Modelo {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Modelo [idModelo=" + idModelo + ", descripcion=" + descripcion

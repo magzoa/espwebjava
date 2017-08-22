@@ -9,6 +9,7 @@ import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
+import py.edu.fpune.posgrado.annotation.Transient;
 
 import java.util.List;
 
@@ -28,10 +29,13 @@ public class Vehiculo implements Serializable {
 	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer idVehiculo;
 
+	@Column(name="anho",type=DataType.INTEGER,unique=true)
 	private Integer anho;
 
+	@Column(name="color",type=DataType.STRING,length=100)
 	private String color;
-
+	
+	@Column(name="placa",type=DataType.STRING,length=100)
 	private String placa;
 
 	//bi-directional many-to-one association to OrdenServicio
@@ -41,16 +45,34 @@ public class Vehiculo implements Serializable {
 	//bi-directional many-to-one association to Cliente
 	//@ManyToOne
 	//@JoinColumn(name="id_cliente")
+	@Column(name="id_cliente",type=DataType.OBJECT)
 	private Cliente cliente;
 
 	//bi-directional many-to-one association to Modelo
 	//@ManyToOne
 	//@JoinColumn(name="id_modelo")
+	@Column(name="id_modelo",type=DataType.OBJECT)
 	private Modelo modelo;
 
 	//bi-directional many-to-one association to Venta
 	//@OneToMany(mappedBy="vehiculo")
 	private List<Venta> ventas;
+	
+	@Transient
+	private List<Modelo> modelos;
+
+
+	public List<Modelo> getModelos() {
+		return modelos;
+	}
+
+
+
+	public void setModelos(List<Modelo> modelos) {
+		this.modelos = modelos;
+	}
+
+
 
 	public Vehiculo() {
 	}
@@ -151,6 +173,12 @@ public class Vehiculo implements Serializable {
 		venta.setVehiculo(null);
 
 		return venta;
+	}
+	
+	@Override
+	public String toString() {
+		return "Vehiculo [idVehiculo=" + idVehiculo + ", modelo=" + modelo
+				+ ", placa=" + placa + ", Año=" + anho +", Cliente=" + cliente + "]";
 	}
 
 }
