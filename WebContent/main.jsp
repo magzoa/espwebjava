@@ -29,7 +29,7 @@
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Marca','goFind');">Marca</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Modelo','goFind');">Modelo</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Funcionario','goFind');">Funcionario.</a></div>
-		<div class="menuItem">Veículo</div>
+		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Vehiculo','goFind');">Vehiculo.</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Cliente','goFind');">Cliente</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Producto','goFind');">Producto</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('OrdenServicio','goFind');">Orden Servicio</a></div>

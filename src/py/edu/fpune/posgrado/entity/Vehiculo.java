@@ -38,40 +38,22 @@ public class Vehiculo implements Serializable {
 	@Column(name="placa",type=DataType.STRING,length=100)
 	private String placa;
 
-	//bi-directional many-to-one association to OrdenServicio
-	//@OneToMany(mappedBy="vehiculo")
+	@Transient
+	@Column(name="orden_servicio",classListName="OrdenServicio",type=DataType.LIST)
 	private List<OrdenServicio> ordenServicios;
 
-	//bi-directional many-to-one association to Cliente
-	//@ManyToOne
-	//@JoinColumn(name="id_cliente")
 	@Column(name="id_cliente",type=DataType.OBJECT)
 	private Cliente cliente;
 
-	//bi-directional many-to-one association to Modelo
-	//@ManyToOne
-	//@JoinColumn(name="id_modelo")
+
 	@Column(name="id_modelo",type=DataType.OBJECT)
 	private Modelo modelo;
 
-	//bi-directional many-to-one association to Venta
-	//@OneToMany(mappedBy="vehiculo")
-	private List<Venta> ventas;
 	
 	@Transient
-	private List<Modelo> modelos;
-
-
-	public List<Modelo> getModelos() {
-		return modelos;
-	}
-
-
-
-	public void setModelos(List<Modelo> modelos) {
-		this.modelos = modelos;
-	}
-
+	@Column(name="venta",classListName="Venta",type=DataType.LIST)
+	private List<Venta> ventas;
+	
 
 
 	public Vehiculo() {
