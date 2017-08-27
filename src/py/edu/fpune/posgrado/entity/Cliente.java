@@ -9,6 +9,10 @@ import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
+<<<<<<< HEAD
+=======
+import py.edu.fpune.posgrado.annotation.Transient;
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 import java.util.Date;
 import java.util.List;
@@ -52,6 +56,11 @@ public class Cliente implements Serializable {
 
 	//bi-directional many-to-one association to Vehiculo
 	//@OneToMany(mappedBy="cliente")
+<<<<<<< HEAD
+=======
+	@Transient
+	@Column(name="vehiculo",classListName="Vehiculo",type=DataType.LIST)
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	private List<Vehiculo> vehiculos;
 
 	public Cliente() {

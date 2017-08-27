@@ -10,6 +10,10 @@ import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
+<<<<<<< HEAD
+=======
+import py.edu.fpune.posgrado.annotation.Transient;
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 import py.edu.fpune.posgrado.util.ManejadorFecha;
 
 
@@ -52,6 +56,11 @@ public class Funcionario implements Serializable {
 
 	//bi-directional many-to-one association to ServicioFuncionario
 	//@OneToMany(mappedBy="funcionario")
+<<<<<<< HEAD
+=======
+	@Transient
+	@Column(name="servicio_funcionario",classListName="ServicioFuncionario",type=DataType.LIST)
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	private List<ServicioFuncionario> servicioFuncionarios;
 
 	public Funcionario() {

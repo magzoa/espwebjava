@@ -23,7 +23,11 @@ public class Venta implements Serializable {
 
 	@Id
 	@GeneratedValue
+<<<<<<< HEAD
 	private Integer id;
+=======
+	private Integer idVenta;
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 	private String descripcion;
 
@@ -52,12 +56,21 @@ public class Venta implements Serializable {
 	public Venta() {
 	}
 
+<<<<<<< HEAD
 	public Integer getId() {
 		return this.id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+=======
+	public Integer getIdVenta() {
+		return this.idVenta;
+	}
+
+	public void setId(Integer id) {
+		this.idVenta = id;
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	}
 
 	public String getDescripcion() {

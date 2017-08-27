@@ -1,7 +1,11 @@
 package py.edu.fpune.posgrado.entity;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import javax.persistence.*;
+=======
+//import javax.persistence.*;
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 import py.edu.fpune.posgrado.annotation.Column;
 import py.edu.fpune.posgrado.annotation.DataType;
@@ -32,7 +36,11 @@ public class Producto implements Serializable {
 
 	private String descripcion;
 
+<<<<<<< HEAD
 	private double valor;
+=======
+	private Double valor;
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 	//bi-directional many-to-one association to OrdenServicioDetProducto
 	//@OneToMany(mappedBy="producto")
@@ -69,11 +77,19 @@ public class Producto implements Serializable {
 		this.descripcion = descripcion;
 	}
 
+<<<<<<< HEAD
 	public double getValor() {
 		return this.valor;
 	}
 
 	public void setValor(double valor) {
+=======
+	public Double getValor() {
+		return this.valor;
+	}
+
+	public void setValor(Double valor) {
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 		this.valor = valor;
 	}
 

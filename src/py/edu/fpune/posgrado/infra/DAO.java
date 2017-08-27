@@ -121,6 +121,7 @@ public abstract class DAO {
 			Object[] retorno=Factory.createByResultSet(rst, obj.getClass());
 			
 			
+<<<<<<< HEAD
 			
 			Field field=Reflection.getListField(obj.getClass());
 			
@@ -177,6 +178,32 @@ public abstract class DAO {
 			
 			
 			
+=======
+			try {
+				Field field=Reflection.getListField(obj.getClass());	
+				Class<?> claseLista=Class.forName("py.edu.fpune.posgrado.entity."+Reflection.getListFieldClassName(obj.getClass()));			
+				Object objLista=claseLista.newInstance();			
+				System.out.println("Clase Lista"+claseLista.getName());
+				System.out.println("El Objeto "+claseLista.getAnnotation(Table.class));
+				System.out.println("El Objeto "+claseLista.getName());	
+				ObjectMapper mapper = new ObjectMapper();			
+				if(field!=null){					
+					String sql2 = Query.getSQLSelect(objLista);
+					System.out.println(sql2);
+					rst2 = stmt.executeQuery(sql2);
+					Object[] lista=Factory.createByResultSet(rst2, objLista.getClass());				
+					String jsonInString = mapper.writeValueAsString(lista); //convierta la lista en string					
+					System.out.println("Json: "+jsonInString);				
+				}
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+			return retorno;
+		
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 		} catch (Exception e) {
 			try {
 				this.rollback();

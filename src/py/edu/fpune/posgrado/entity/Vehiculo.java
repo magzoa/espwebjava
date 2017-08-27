@@ -9,6 +9,10 @@ import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
+<<<<<<< HEAD
+=======
+import py.edu.fpune.posgrado.annotation.Transient;
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 import java.util.List;
 
@@ -28,6 +32,7 @@ public class Vehiculo implements Serializable {
 	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer idVehiculo;
 
+<<<<<<< HEAD
 	private Integer anho;
 
 	private String color;
@@ -51,6 +56,34 @@ public class Vehiculo implements Serializable {
 	//bi-directional many-to-one association to Venta
 	//@OneToMany(mappedBy="vehiculo")
 	private List<Venta> ventas;
+=======
+	@Column(name="anho",type=DataType.INTEGER,unique=true)
+	private Integer anho;
+
+	@Column(name="color",type=DataType.STRING,length=100)
+	private String color;
+	
+	@Column(name="placa",type=DataType.STRING,length=100)
+	private String placa;
+
+	@Transient
+	@Column(name="orden_servicio",classListName="OrdenServicio",type=DataType.LIST)
+	private List<OrdenServicio> ordenServicios;
+
+	@Column(name="id_cliente",type=DataType.OBJECT)
+	private Cliente cliente;
+
+
+	@Column(name="id_modelo",type=DataType.OBJECT)
+	private Modelo modelo;
+
+	
+	@Transient
+	@Column(name="venta",classListName="Venta",type=DataType.LIST)
+	private List<Venta> ventas;
+	
+
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 	public Vehiculo() {
 	}
@@ -152,5 +185,14 @@ public class Vehiculo implements Serializable {
 
 		return venta;
 	}
+<<<<<<< HEAD
+=======
+	
+	@Override
+	public String toString() {
+		return "Vehiculo [idVehiculo=" + idVehiculo + ", modelo=" + modelo
+				+ ", placa=" + placa + ", Año=" + anho +", Cliente=" + cliente + "]";
+	}
+>>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 }
