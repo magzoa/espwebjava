@@ -1,7 +1,7 @@
 package py.edu.fpune.posgrado.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.List;
 
 import py.edu.fpune.posgrado.annotation.Column;
 import py.edu.fpune.posgrado.annotation.DataType;
@@ -9,12 +9,7 @@ import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
-<<<<<<< HEAD
-=======
 import py.edu.fpune.posgrado.annotation.Transient;
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
-
-import java.util.List;
 
 
 /**
@@ -23,7 +18,6 @@ import java.util.List;
  */
 @Entity
 @Table(name="vehiculo")
-//@NamedQuery(name="Vehiculo.findAll", query="SELECT v FROM Vehiculo v")
 public class Vehiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,31 +26,6 @@ public class Vehiculo implements Serializable {
 	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer idVehiculo;
 
-<<<<<<< HEAD
-	private Integer anho;
-
-	private String color;
-
-	private String placa;
-
-	//bi-directional many-to-one association to OrdenServicio
-	//@OneToMany(mappedBy="vehiculo")
-	private List<OrdenServicio> ordenServicios;
-
-	//bi-directional many-to-one association to Cliente
-	//@ManyToOne
-	//@JoinColumn(name="id_cliente")
-	private Cliente cliente;
-
-	//bi-directional many-to-one association to Modelo
-	//@ManyToOne
-	//@JoinColumn(name="id_modelo")
-	private Modelo modelo;
-
-	//bi-directional many-to-one association to Venta
-	//@OneToMany(mappedBy="vehiculo")
-	private List<Venta> ventas;
-=======
 	@Column(name="anho",type=DataType.INTEGER,unique=true)
 	private Integer anho;
 
@@ -83,7 +52,6 @@ public class Vehiculo implements Serializable {
 	private List<Venta> ventas;
 	
 
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 	public Vehiculo() {
 	}
@@ -185,14 +153,11 @@ public class Vehiculo implements Serializable {
 
 		return venta;
 	}
-<<<<<<< HEAD
-=======
 	
 	@Override
 	public String toString() {
 		return "Vehiculo [idVehiculo=" + idVehiculo + ", modelo=" + modelo
-				+ ", placa=" + placa + ", Año=" + anho +", Cliente=" + cliente + "]";
+				+ ", placa=" + placa + ", Aï¿½o=" + anho +", Cliente=" + cliente + "]";
 	}
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 }

@@ -13,21 +13,13 @@ public class Modelo {
 
 	@Id
 	@GeneratedValue
-<<<<<<< HEAD
-	@Column(name="idmodelo",type=DataType.INTEGER,unique=true)
-=======
 	@Column(name="id",type=DataType.INTEGER,unique=true)
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	private Integer idModelo;
 	
 	@Column(name="descripcion",type=DataType.STRING,length=100,orderBy=true)
 	private String descripcion;
 	
-<<<<<<< HEAD
-	@Column(name="idmarca",type=DataType.OBJECT)
-=======
 	@Column(name="id_marca",type=DataType.OBJECT)
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	private Marca marca;
 	
 	public Marca getMarca() {

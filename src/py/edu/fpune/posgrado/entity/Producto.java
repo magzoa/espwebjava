@@ -1,20 +1,13 @@
 package py.edu.fpune.posgrado.entity;
 
 import java.io.Serializable;
-<<<<<<< HEAD
-import javax.persistence.*;
-=======
-//import javax.persistence.*;
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
-
+import java.util.List;
 import py.edu.fpune.posgrado.annotation.Column;
 import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
-
-import java.util.List;
 
 
 /**
@@ -23,7 +16,6 @@ import java.util.List;
  */
 @Entity
 @Table(name="producto")
-//@NamedQuery(name="Producto.findAll", query="SELECT p FROM Producto p")
 public class Producto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -36,18 +28,10 @@ public class Producto implements Serializable {
 
 	private String descripcion;
 
-<<<<<<< HEAD
-	private double valor;
-=======
 	private Double valor;
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
-	//bi-directional many-to-one association to OrdenServicioDetProducto
-	//@OneToMany(mappedBy="producto")
 	private List<OrdenServicioDetProducto> ordenServicioDetProductos;
 
-	//bi-directional many-to-one association to VentaDetProducto
-	//@OneToMany(mappedBy="producto")
 	private List<VentaDetProducto> ventaDetProductos;
 
 	public Producto() {
@@ -77,19 +61,11 @@ public class Producto implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-<<<<<<< HEAD
-	public double getValor() {
-		return this.valor;
-	}
-
-	public void setValor(double valor) {
-=======
 	public Double getValor() {
 		return this.valor;
 	}
 
 	public void setValor(Double valor) {
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 		this.valor = valor;
 	}
 

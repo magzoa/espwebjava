@@ -10,20 +10,11 @@ import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
-<<<<<<< HEAD
-=======
 import py.edu.fpune.posgrado.annotation.Transient;
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 import py.edu.fpune.posgrado.util.ManejadorFecha;
 
-
-/**
- * The persistent class for the funcionario database table.
- * Entidad de funcionario
- */
 @Entity
 @Table(name="funcionario")
-//@NamedQuery(name="Funcionario.findAll", query="SELECT f FROM Funcionario f")
 public class Funcionario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -41,7 +32,6 @@ public class Funcionario implements Serializable {
 	@Column(name="direccion")
 	private String direccion;
 
-	//@Temporal(TemporalType.DATE)
 	@Column(name="fecha_nacimiento", type=DataType.DATE)
 	private Date fechaNacimiento;
 
@@ -54,13 +44,8 @@ public class Funcionario implements Serializable {
 	@Column(name="ruc")
 	private String ruc;
 
-	//bi-directional many-to-one association to ServicioFuncionario
-	//@OneToMany(mappedBy="funcionario")
-<<<<<<< HEAD
-=======
 	@Transient
 	@Column(name="servicio_funcionario",classListName="ServicioFuncionario",type=DataType.LIST)
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	private List<ServicioFuncionario> servicioFuncionarios;
 
 	public Funcionario() {

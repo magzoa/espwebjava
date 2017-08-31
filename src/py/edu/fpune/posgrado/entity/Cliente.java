@@ -1,7 +1,8 @@
 package py.edu.fpune.posgrado.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 import py.edu.fpune.posgrado.annotation.Column;
 import py.edu.fpune.posgrado.annotation.DataType;
@@ -9,13 +10,7 @@ import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
 import py.edu.fpune.posgrado.annotation.Table;
-<<<<<<< HEAD
-=======
 import py.edu.fpune.posgrado.annotation.Transient;
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
-
-import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -41,7 +36,6 @@ public class Cliente implements Serializable {
 	@Column(name="direccion",type=DataType.STRING,length=255)
 	private String direccion;
 
-	//@Temporal(TemporalType.DATE)
 	@Column(name="fecha_nacimiento",type=DataType.DATE)
 	private Date fechaNacimiento;
 
@@ -54,13 +48,8 @@ public class Cliente implements Serializable {
 	@Column(name="ruc",type=DataType.STRING,length=15)
 	private String ruc;
 
-	//bi-directional many-to-one association to Vehiculo
-	//@OneToMany(mappedBy="cliente")
-<<<<<<< HEAD
-=======
 	@Transient
 	@Column(name="vehiculo",classListName="Vehiculo",type=DataType.LIST)
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	private List<Vehiculo> vehiculos;
 
 	public Cliente() {

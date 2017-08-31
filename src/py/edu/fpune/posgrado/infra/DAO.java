@@ -109,7 +109,7 @@ public abstract class DAO {
 			}
 		}
 	}
-//Aca se deve verificar si existe una lista como atributo
+	//Aca se deve verificar si existe una lista como atributo
 	public Object[] find(Object obj) throws Exception {
 		Statement stmt = this.con.createStatement();
 		ResultSet rst = null;
@@ -121,64 +121,6 @@ public abstract class DAO {
 			Object[] retorno=Factory.createByResultSet(rst, obj.getClass());
 			
 			
-<<<<<<< HEAD
-			
-			Field field=Reflection.getListField(obj.getClass());
-			
-			
-			
-			Class<?> claseLista=Class.forName("py.edu.fpune.posgrado.entity."+Reflection.getListFieldClassName(obj.getClass()));
-			
-			Object objLista=claseLista.newInstance();
-			
-			System.out.println("Clase Lista"+claseLista.getName());
-			System.out.println("El Objeto "+claseLista.getAnnotation(Table.class));
-			System.out.println("El Objeto "+claseLista.getName());
-			
-
-			
-			ObjectMapper mapper = new ObjectMapper();
-			
-			if(field!=null){
-				
-				String sql2 = Query.getSQLSelect(objLista);
-				System.out.println(sql2);
-				rst2 = stmt.executeQuery(sql2);
-				Object[] lista=Factory.createByResultSet(rst2, objLista.getClass());
-				
-				//List<OrdenServicioDetProducto> list = new ArrayList(Arrays.asList(lista));
-				
-				//System.out.println(lista);
-				
-				String jsonInString = mapper.writeValueAsString(lista); //convierta la lista en string
-				
-				//TypeReference<List<OrdenServicioDetProducto>> mapType = new TypeReference<List<OrdenServicioDetProducto>>() {};
-		    	//List<OrdenServicioDetProducto> productosList = mapper.readValue( list, mapType); en caso de String a List
-				
-				
-				
-				System.out.println("Json: "+jsonInString);
-				
-			}
-			
-			
-			
-			
-			//System.out.println("La lista "+field.getName());
-			//System.out.println("Nombre "+field.getType());
-			//System.out.println("Nombre "+field.getType().getSimpleName());
-			//System.out.println("Nombre "+field.getType().getClass());
-			
-			
-			
-			return retorno;
-			
-			
-			
-			
-			
-			
-=======
 			try {
 				Field field=Reflection.getListField(obj.getClass());	
 				Class<?> claseLista=Class.forName("py.edu.fpune.posgrado.entity."+Reflection.getListFieldClassName(obj.getClass()));			
@@ -203,7 +145,6 @@ public abstract class DAO {
 		
 			return retorno;
 		
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 		} catch (Exception e) {
 			try {
 				this.rollback();
@@ -222,6 +163,8 @@ public abstract class DAO {
 			}
 		}
 	}
+	
+	
 
 	public Object findByPrimary(Object obj) throws Exception {
 		if ((obj != null) && (Reflection.getIdFieldValue(obj) != null)) {

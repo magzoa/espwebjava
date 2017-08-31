@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import py.edu.fpune.posgrado.annotation.Column;
+import py.edu.fpune.posgrado.annotation.DataType;
 import py.edu.fpune.posgrado.annotation.Entity;
 import py.edu.fpune.posgrado.annotation.GeneratedValue;
 import py.edu.fpune.posgrado.annotation.Id;
@@ -23,11 +24,8 @@ public class Venta implements Serializable {
 
 	@Id
 	@GeneratedValue
-<<<<<<< HEAD
+	@Column(name="id",type=DataType.INTEGER,unique=true)
 	private Integer id;
-=======
-	private Integer idVenta;
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 
 	private String descripcion;
 
@@ -56,21 +54,12 @@ public class Venta implements Serializable {
 	public Venta() {
 	}
 
-<<<<<<< HEAD
 	public Integer getId() {
 		return this.id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
-=======
-	public Integer getIdVenta() {
-		return this.idVenta;
-	}
-
-	public void setId(Integer id) {
-		this.idVenta = id;
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	}
 
 	public String getDescripcion() {

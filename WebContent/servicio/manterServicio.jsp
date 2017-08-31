@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@page import="py.edu.fpune.posgrado.entity.Producto"%>
-<%@page import="py.edu.fpune.posgrado.session.SessionProducto"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="py.edu.fpune.posgrado.entity.Servicio"%>
+<%@page import="py.edu.fpune.posgrado.session.SessionServicio"%>
 <%
-	Producto producto = (Producto) request.getAttribute("object");
-	if (producto == null) {
-		producto = new Producto();
+	Servicio servicio = (Servicio) request.getAttribute("object");
+	if (servicio == null) {
+		servicio = new Servicio();
 	}
 	
 	String message = (String) request.getAttribute("msg");
@@ -15,7 +14,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="./css/styles.css">
-	<title>Consultar Producto</title>
+	<title>Consultar Servicio</title>
 	
 	<script type="text/javascript">
 	
@@ -32,9 +31,9 @@
 		}
 		
 		function validate() {
-			if (document.getElementById("nombre").value == "") {
+			if (document.getElementById("descripcion").value == "") {
 				alert("Campo obrigatório!");
-				document.getElementById("nombre").focus();
+				document.getElementById("descripcion").focus();
 				return false;
 			}
 			return true;
@@ -64,20 +63,18 @@
 	</script>	
 </head>
 <body onload="message();">
-	<div class="titulo">Consultar Producto</div>
+	<div class="titulo">Consultar Servicio</div>
 	<div class="divFields">
 		<form id="form" name="form" method="post" action="dispatcher">
 			<input type="hidden" id="newAction" name="newAction" />
-			<input type="hidden" id="entityName" name="entityName" value="Producto"/>
+			<input type="hidden" id="entityName" name="entityName" value="Servicio"/>
 			<input type="hidden" id="id" name="id" />
 			<div class="divLabel">Código:</div>
-			<div class="divField"><input value="<%=(producto.getId() != null) ? producto.getId() : ""%>" class="inputText" type="text" id="id" name="id" readonly/></div>
-			<div class="divLabel">Descripcion:</div>
-			<div class="divField"><input value="<%=(producto.getDescripcion() != null) ? producto.getDescripcion(): ""%>" class="inputText" type="text" id="descripcion" name="descripcion" style="width:320px;" /></div>
-			<div class="divLabel">Cantidad:</div>
-			<div class="divField"><input value="<%=(producto.getCantidad() != null) ? producto.getCantidad(): ""%>" class="inputText" type="text" id="cantidad" name="cantidad" style="width:320px;" /></div>
-			<div class="divLabel">Valor:</div>
-			<div class="divField"><input value="<%=(producto.getValor() != null) ? producto.getValor(): ""%>" class="inputText" type="text" id="valor" name="valor" style="width:320px;" /></div>
+			<div class="divField"><input value="<%=(servicio.getId() != null) ? servicio.getId() : ""%>" class="inputText" type="text" id="idServicio" name="idServicio" readonly/></div>
+			<div class="divLabel">Descripción:</div>
+			<div class="divField"><input value="<%=(servicio.getDescripcion() != null) ? servicio.getDescripcion() : ""%>" class="inputText" type="text" id="descripcion" name="descripcion" style="width:320px;" /></div>
+			<div class="divLabel">Valor hora:</div>
+			<div class="divField"><input value="<%=(servicio.getValorHora() != null) ? servicio.getValorHora() : ""%>" class="inputText" type="text" id="valorHora" name="valorHora" style="width:320px;" /></div>
 		</form>
 		<div class="divButtons">
 			<input type="button" class="button" value="Salvar" onclick="save();" />

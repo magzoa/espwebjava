@@ -29,17 +29,12 @@
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Marca','goFind');">Marca</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Modelo','goFind');">Modelo</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Funcionario','goFind');">Funcionario.</a></div>
-<<<<<<< HEAD
-		<div class="menuItem">Veículo</div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Cliente','goFind');">Cliente</a></div>
-		<div class="menuItem"><a class="linkMenu" href="javascript:execute('OrdenServicio','goFind');">Orden Servicio</a></div>
-=======
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Vehiculo','goFind');">Vehiculo.</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Cliente','goFind');">Cliente</a></div>
+		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Servicio','goFind');">Servicio</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Producto','goFind');">Producto</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('OrdenServicio','goFind');">Orden Servicio</a></div>
 		<div class="menuItem"><a class="linkMenu" href="javascript:execute('Venta','goFind');">Venta</a></div>
->>>>>>> 7edcb28d4b309383704a70c38a5116713d443286
 	</div>
 	<div class="divMain">
 		<iframe class="iframeMain" name="main" frameborder="1" style="border: 1px solid; border-color:#ff0000"></iframe>
